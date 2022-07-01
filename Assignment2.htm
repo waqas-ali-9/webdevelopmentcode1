@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+    <style>
+        #row1 {
+            background-color: rgb(75, 71, 71);
+        }
+        #heading2left{
+            color: white;
+        }
+        #heading2right{
+            color: black;
+        }
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: red;
+        }
+
+        .col-sm-1 {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .col-sm-6 {
+            padding: 20vh 10vw 10vh 10vw;
+        }
+
+        #personaldata {
+            padding-left: 5vw;
+            display: flex;
+            margin-top: 2vh;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="row1" class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-1"><a href="">Home</a></div>
+        <div class="col-sm-1"><a href="">Services</a></div>
+        <div class="col-sm-1"><a href="">Portfolio</a></div>
+        <div class="col-sm-1"><a href="">About Us</a></div>
+        <div class="col-sm-1"><a href="">Team</a></div>
+        <div class="col-sm-1"><a href="">Careers</a></div>
+        <div class="col-sm-1"><a href="">Contact</a></div>
+        <div class="col-sm-1"><a href="">Training Program</a></div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    <div id="row2" class="row">
+        <div class="col-sm-6" style="background-image: url('bg2.jpeg');
+        height:100vh;        
+        
+        ">
+            <div id="personalData">
+                <h2 id="heading2left">Get In Touch</h2>
+            </div>
+            <div id="personaldata">
+                House#22, Sultan Town, Lahore, Pakistan
+            </div>
+            <div id="personaldata">
+                (+92)3034356605
+            </div>
+            <div id="personaldata">
+                DIT@GCU.edu.pk
+            </div>
+
+
+
+        </div>
+        <div class="col-sm-6">
+            <span>
+                <h2 id="headig2right">Message US</h2>
+            </span>
+            <form action="/action_page.php">
+                <div class="form-group">
+                    <!-- <label for="email">Email address:</label> -->
+                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-control" id="phonenumber" placeholder="Your Phone Number">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="message" placeholder="Your Message">
+                </div>
+                <button onclick="validationcheck()" type="button" class="btn btn-warning">Submit Form</button>
+            </form>
+        </div>
+    </div>
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--                                            JAVASCRIPT                                            -->
+    <script>
+
+        function validationcheck() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phonenumber = document.getElementById("phonenumber").value;
+            let message = document.getElementById("message").value;
+
+            // If There is no name entered
+            if (!name) {
+                alert("Enter Name");
+                return
+            }
+            // If There is no email entered
+            if (!email) {
+                alert("Enter Email")
+                return
+            }
+            // If There is an email then check if it is invalid
+            if (email) {
+                let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (!email.match(mailformat)) {
+                    alert("InValid Email");
+                    return
+                }
+            }
+            // If There is no phone number entered
+            if (!phonenumber) {
+                alert("Enter Phone Number");
+                return
+            }
+            // If There is a Phone number then check if it is invalid
+            if (phonenumber) {
+                let phoneno = /^\d{11}$/;
+                if (!phonenumber.match(phoneno)) {
+                    alert("InValid Phone Number");
+                    return
+                }
+            }
+            // If There is no message
+            if (!message) {
+                alert("Enter Message");
+                return
+            }
+            // If form is filled correctly
+            alert("Form Filled Correctly")
+        }
+    </script>
+</body>
+</html>
